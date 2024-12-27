@@ -72,7 +72,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="auth-form">
           <h1 className="form-title">
-            {type === "sign-in" ? "Sign In" : "Sign Up"}
+            {type === "sign-in" ? "Connexion" : "Inscription"}
           </h1>
           {type === "sign-up" && (
             <FormField
@@ -81,11 +81,11 @@ const AuthForm = ({ type }: { type: FormType }) => {
               render={({ field }) => (
                 <FormItem>
                   <div className="shad-form-item">
-                    <FormLabel className="shad-form-label">Full Name</FormLabel>
+                    <FormLabel className="shad-form-label">Nom complet</FormLabel>
 
                     <FormControl>
                       <Input
-                        placeholder="Enter your full name"
+                        placeholder="Entrez votre nom complet"
                         className="shad-input"
                         {...field}
                       />
@@ -108,7 +108,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
 
                   <FormControl>
                     <Input
-                      placeholder="Enter your email"
+                      placeholder="Entrez votre email"
                       className="shad-input"
                       {...field}
                     />
@@ -125,7 +125,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
             className="form-submit-button"
             disabled={isLoading}
           >
-            {type === "sign-in" ? "Sign In" : "Sign Up"}
+            {type === "sign-in" ? "Connexion" : "Inscription"}
 
             {isLoading && (
               <Image
@@ -143,15 +143,15 @@ const AuthForm = ({ type }: { type: FormType }) => {
           <div className="body-2 flex justify-center">
             <p className="text-light-100">
               {type === "sign-in"
-                ? "Don't have an account?"
-                : "Already have an account?"}
+                ? "Vous n'avez pas de compte ?"
+                : "Vous avez déjà un compte ?"}
             </p>
             <Link
               href={type === "sign-in" ? "/sign-up" : "/sign-in"}
               className="ml-1 font-medium text-brand"
             >
               {" "}
-              {type === "sign-in" ? "Sign Up" : "Sign In"}
+              {type === "sign-in" ? "Inscription" : "Connexion"}
             </Link>
           </div>
         </form>

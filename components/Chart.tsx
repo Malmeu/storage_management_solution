@@ -56,30 +56,30 @@ export const Chart = ({ used = 0 }: { used: number }) => {
                   if (viewBox && "cx" in viewBox && "cy" in viewBox) {
                     return (
                       <text
+                      x={viewBox.cx}
+                      y={viewBox.cy}
+                      textAnchor="middle"
+                      dominantBaseline="middle"
+                      >
+                      <tspan
                         x={viewBox.cx}
                         y={viewBox.cy}
-                        textAnchor="middle"
-                        dominantBaseline="middle"
+                        className="chart-total-percentage"
                       >
-                        <tspan
-                          x={viewBox.cx}
-                          y={viewBox.cy}
-                          className="chart-total-percentage"
-                        >
-                          {used && calculatePercentage(used)
-                            ? calculatePercentage(used)
-                                .toString()
-                                .replace(/^0+/, "")
-                            : "0"}
-                          %
-                        </tspan>
-                        <tspan
-                          x={viewBox.cx}
-                          y={(viewBox.cy || 0) + 24}
-                          className="fill-white/70"
-                        >
-                          Space used
-                        </tspan>
+                        {used && calculatePercentage(used)
+                        ? calculatePercentage(used)
+                          .toString()
+                          .replace(/^0+/, "")
+                        : "0"}
+                        %
+                      </tspan>
+                      <tspan
+                        x={viewBox.cx}
+                        y={(viewBox.cy || 0) + 24}
+                        className="fill-white/70"
+                      >
+                        Espace utilisé
+                      </tspan>
                       </text>
                     );
                   }
